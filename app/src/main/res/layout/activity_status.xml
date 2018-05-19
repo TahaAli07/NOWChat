@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.yasir.nowchat.StatusActivity">
+
+    <include
+        android:id="@+id/status_Toolbar"
+        layout="@layout/toolbar_main"></include>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/status_Toolbar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="56dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:id="@+id/status_textInputLayout">
+
+        <android.support.design.widget.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter Your Status Here"
+            android:textColor="@color/colorPrimaryDark" />
+    </android.support.design.widget.TextInputLayout>
+
+    <Button
+        android:id="@+id/status_Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/status_textInputLayout"
+        android:layout_marginEnd="28dp"
+        android:layout_marginTop="22dp"
+        android:backgroundTint="@android:color/holo_red_dark"
+        android:text="SAVE CHANGES"
+        android:textColor="@android:color/white" />
+
+</RelativeLayout>

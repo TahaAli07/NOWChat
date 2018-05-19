@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "641207341916",
+    "firebase_url": "https://nowchat-fd880.firebaseio.com",
+    "project_id": "nowchat-fd880",
+    "storage_bucket": "nowchat-fd880.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:641207341916:android:0ba92d93262d97a7",
+        "android_client_info": {
+          "package_name": "com.example.yasir.nowchat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "641207341916-j4str408dd89qkibj6d9otes83jituv2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.yasir.nowchat",
+            "certificate_hash": "ac8d400f8a181880be0eca8198e1e69b80cdc3b1"
+          }
+        },
+        {
+          "client_id": "641207341916-6t2ti3va1s1hslgv2ic649s8hton96e2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBxsFwkTHHyREVh2lLVcjWgMUdu5ShWH1g"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "641207341916-6t2ti3va1s1hslgv2ic649s8hton96e2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

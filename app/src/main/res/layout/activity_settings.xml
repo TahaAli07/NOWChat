@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.yasir.nowchat.SettingsActivity"
+    android:background="@color/colorPrimary">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/circleImageView"
+        android:layout_width="170dp"
+        android:layout_height="170dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="53dp"
+        android:background="@color/colorPrimaryDark"
+        android:src="@drawable/defavatar" />
+
+    <TextView
+        android:id="@+id/settings_name_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/circleImageView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24dp"
+        android:text="@string/name"
+        android:textColor="@android:color/white"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/settings_status_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/settings_name_textView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="13dp"
+        android:text="@string/hi_there_i_am_using_nowchat"
+        android:textColor="@android:color/white"
+        android:textSize="12sp" />
+
+    <Button
+        android:id="@+id/settings_ChangeImage_Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/settings_status_textView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="83dp"
+        android:backgroundTint="@color/colorAccent"
+        android:text="@string/change_image"
+        android:textColor="@android:color/white" />
+
+    <Button
+        android:id="@+id/settings_ChangeStatus_Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/settings_ChangeImage_Button"
+        android:layout_below="@+id/settings_ChangeImage_Button"
+        android:layout_marginTop="11dp"
+        android:backgroundTint="@android:color/holo_red_dark"
+        android:text="@string/change_status"
+        android:textColor="@android:color/white" />
+
+</RelativeLayout>
