@@ -15,15 +15,16 @@ public class StartActivity extends AppCompatActivity {
 
     //Start Activity has a button stating want to create new account which takes to the register activity
 
-    public void OnStartToRegisterButtonClick(View view){
-        Intent register_intent = new Intent(StartActivity.this,RegisterActivity.class);
+    public void OnStartToRegisterButtonClick(View view) {
+        Intent register_intent = new Intent(StartActivity.this, RegisterActivity.class);
         startActivity(register_intent);
 
 
     }
-    public void OnclickForLoginButton(View view){
 
-        Intent login_intent = new Intent(StartActivity.this,LoginActivity.class);
+    public void OnclickForLoginButton(View view) {
+
+        Intent login_intent = new Intent(StartActivity.this, LoginActivity.class);
         startActivity(login_intent);
     }
 }

@@ -38,13 +38,13 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(mToolbar);
         getSupportActionBar().setTitle("NowChat");
 
-        mViewPager=(ViewPager)findViewById(R.id.main_viewPager);
+        mViewPager = (ViewPager) findViewById(R.id.main_viewPager);
 
         mViewPagerAdapter = new PagerAdapterSection(getSupportFragmentManager());
 
         mViewPager.setAdapter(mViewPagerAdapter);
 
-        mTabLayout= (TabLayout)findViewById(R.id.main_tabs);
+        mTabLayout = (TabLayout) findViewById(R.id.main_tabs);
 
         mTabLayout.setupWithViewPager(mViewPager);
 
@@ -58,8 +58,8 @@ public class MainActivity extends AppCompatActivity {
 
         FirebaseUser currentUser = mAuth.getCurrentUser();
 
-        if (currentUser==null){
-            Intent StartIntent = new Intent(MainActivity.this,StartActivity.class);
+        if (currentUser == null) {
+            Intent StartIntent = new Intent(MainActivity.this, StartActivity.class);
             startActivity(StartIntent);
             finish();
         }
@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
 
-        getMenuInflater().inflate(R.menu.main_menu,menu);
+        getMenuInflater().inflate(R.menu.main_menu, menu);
 
         return true;
     }
@@ -80,25 +80,25 @@ public class MainActivity extends AppCompatActivity {
 
         super.onOptionsItemSelected(item);
 
-        if (item.getItemId()==R.id.main_logout_button){
+        if (item.getItemId() == R.id.main_logout_button) {
 
             FirebaseAuth.getInstance().signOut();
-            Intent startIntent = new Intent( MainActivity.this, StartActivity.class);
+            Intent startIntent = new Intent(MainActivity.this, StartActivity.class);
 
             startActivity(startIntent);
 
         }
 
-        if(item.getItemId()==R.id.main_AccountSettings_Button){
-            Intent settings_intent = new Intent(MainActivity.this,SettingsActivity.class);
+        if (item.getItemId() == R.id.main_AccountSettings_Button) {
+            Intent settings_intent = new Intent(MainActivity.this, SettingsActivity.class);
             startActivity(settings_intent);
 
 
         }
 
-        if(item.getItemId()==R.id.main_AllUsers_Button){
+        if (item.getItemId() == R.id.main_AllUsers_Button) {
 
-            Intent Users_intent = new Intent(MainActivity.this,UsersActivity.class);
+            Intent Users_intent = new Intent(MainActivity.this, UsersActivity.class);
             startActivity(Users_intent);
 
 

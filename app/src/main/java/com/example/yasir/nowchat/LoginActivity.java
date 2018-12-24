@@ -44,16 +44,16 @@ public class LoginActivity extends AppCompatActivity {
         //firebase
         mAuth = FirebaseAuth.getInstance();
 
-        mProgressDialog =new ProgressDialog(this);
+        mProgressDialog = new ProgressDialog(this);
 
         mToolbar = findViewById(R.id.login_toolbar);
         setSupportActionBar(mToolbar);
         getSupportActionBar().setTitle("Login Page");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        mEmail=findViewById(R.id.login_email);
-        mPassword=findViewById(R.id.login_password);
-        mButton=findViewById(R.id.login_loginButton);
+        mEmail = findViewById(R.id.login_email);
+        mPassword = findViewById(R.id.login_password);
+        mButton = findViewById(R.id.login_loginButton);
 
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,12 +62,12 @@ public class LoginActivity extends AppCompatActivity {
                 String email = mEmail.getEditText().getText().toString();
                 String password = mPassword.getEditText().getText().toString();
 
-                if(!TextUtils.isEmpty(email) || !TextUtils.isEmpty(password)){
+                if (!TextUtils.isEmpty(email) || !TextUtils.isEmpty(password)) {
 
                     mProgressDialog.setMessage("Logging in");
                     mProgressDialog.setCanceledOnTouchOutside(false);
                     mProgressDialog.show();
-                    login_user(email,password);
+                    login_user(email, password);
                 }
 
             }
@@ -75,7 +75,7 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-    private void login_user(String email , String password){
+    private void login_user(String email, String password) {
 
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -85,7 +85,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
                             mProgressDialog.dismiss();
-                            Intent mainIntent = new Intent(LoginActivity.this,MainActivity.class);
+                            Intent mainIntent = new Intent(LoginActivity.this, MainActivity.class);
                             startActivity(mainIntent);
                             finish();
 
@@ -100,12 +100,13 @@ public class LoginActivity extends AppCompatActivity {
                 }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-                Toast.makeText(LoginActivity.this,e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(LoginActivity.this, e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
 
 
-    }});
-}
+            }
+        });
     }
+}
 
 
 

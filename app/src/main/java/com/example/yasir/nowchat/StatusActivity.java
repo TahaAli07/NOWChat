@@ -32,15 +32,14 @@ public class StatusActivity extends AppCompatActivity {
     private ProgressDialog mProgress;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_status);
 
-        mToolBar=findViewById(R.id.status_Toolbar);
-        mButton= findViewById(R.id.status_Button);
-        txt_input_layout=findViewById(R.id.status_textInputLayout);
+        mToolBar = findViewById(R.id.status_Toolbar);
+        mButton = findViewById(R.id.status_Button);
+        txt_input_layout = findViewById(R.id.status_textInputLayout);
         txt_input_layout.getEditText().setText(getIntent().getStringExtra("Status Value"));
 
         mButton.setOnClickListener(new View.OnClickListener() {
@@ -55,26 +54,22 @@ public class StatusActivity extends AppCompatActivity {
 
                 String status = txt_input_layout.getEditText().getText().toString();
 
-                mCurrentUser= FirebaseAuth.getInstance().getCurrentUser();
-                mDatabase= FirebaseDatabase.getInstance().getReference().child("USERS DATABASE").child(mCurrentUser.getUid());
+                mCurrentUser = FirebaseAuth.getInstance().getCurrentUser();
+                mDatabase = FirebaseDatabase.getInstance().getReference().child("USERS DATABASE").child(mCurrentUser.getUid());
 
                 mDatabase.child("status").setValue(status).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
-                        if(task.isSuccessful()){
+                        if (task.isSuccessful()) {
 
                             mProgress.dismiss();
 
-                        }
-                        else{
+                        } else {
 
                             Toast.makeText(StatusActivity.this, "Error in saving changes", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
-
-
-
 
 
             }

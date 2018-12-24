@@ -26,9 +26,9 @@ import java.util.HashMap;
 
 public class RegisterActivity extends AppCompatActivity {
 
-    private TextInputLayout mDisplayName ;
-    private TextInputLayout mDisplayEmail ;
-    private TextInputLayout mDisplayPassword ;
+    private TextInputLayout mDisplayName;
+    private TextInputLayout mDisplayEmail;
+    private TextInputLayout mDisplayPassword;
     private Button OnaccCreateButton;
     private Toolbar mToolbar;
     private ProgressDialog mProgressDialog;
@@ -42,17 +42,17 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        mToolbar =  findViewById(R.id.reg_toolbar);
+        mToolbar = findViewById(R.id.reg_toolbar);
         setSupportActionBar(mToolbar);
         getSupportActionBar().setTitle("Create Account");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        mProgressDialog =new ProgressDialog(this);
+        mProgressDialog = new ProgressDialog(this);
 
-        mDisplayName=findViewById(R.id.reg_name);
-        mDisplayEmail=findViewById(R.id.reg_email);
-        mDisplayPassword=findViewById(R.id.reg_password);
-        OnaccCreateButton=findViewById(R.id.reg_createAccount_button);
+        mDisplayName = findViewById(R.id.reg_name);
+        mDisplayEmail = findViewById(R.id.reg_email);
+        mDisplayPassword = findViewById(R.id.reg_password);
+        OnaccCreateButton = findViewById(R.id.reg_createAccount_button);
 
         //firebase
         mAuth = FirebaseAuth.getInstance();
@@ -67,11 +67,11 @@ public class RegisterActivity extends AppCompatActivity {
                 String email = mDisplayEmail.getEditText().getText().toString();
                 String password = mDisplayPassword.getEditText().getText().toString();
 
-                if(!TextUtils.isEmpty(name) || !TextUtils.isEmpty(email)|| !TextUtils.isEmpty(password)){
-                mProgressDialog.setMessage("Please Wait while you are registered");
-                mProgressDialog.setCanceledOnTouchOutside(false);
-                mProgressDialog.show();
-                register_user(name,email,password);
+                if (!TextUtils.isEmpty(name) || !TextUtils.isEmpty(email) || !TextUtils.isEmpty(password)) {
+                    mProgressDialog.setMessage("Please Wait while you are registered");
+                    mProgressDialog.setCanceledOnTouchOutside(false);
+                    mProgressDialog.show();
+                    register_user(name, email, password);
                 }
             }
         });
@@ -80,7 +80,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     //firebase code to register new user
     private void register_user(final String name, String email, String password) {
-        mAuth.createUserWithEmailAndPassword(email,password)
+        mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
@@ -90,18 +90,18 @@ public class RegisterActivity extends AppCompatActivity {
                             String uid = user.getUid();
                             mDBrefernce = FirebaseDatabase.getInstance().getReference().child("USERS DATABASE").child(uid);
 
-                            HashMap<String,String> user_map= new HashMap<>();
-                            user_map.put("name",name);
-                            user_map.put("status","Hey There ! I am Using NowChat");
-                            user_map.put("image","default");
-                            user_map.put("thumb_image","default");
+                            HashMap<String, String> user_map = new HashMap<>();
+                            user_map.put("name", name);
+                            user_map.put("status", "Hey There ! I am Using NowChat");
+                            user_map.put("image", "default");
+                            user_map.put("thumb_image", "default");
 
                             mDBrefernce.setValue(user_map).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
-                                    if(task.isSuccessful()){
+                                    if (task.isSuccessful()) {
                                         mProgressDialog.dismiss();
-                                        Intent mainIntent = new Intent(RegisterActivity.this,MainActivity.class);
+                                        Intent mainIntent = new Intent(RegisterActivity.this, MainActivity.class);
                                         startActivity(mainIntent);
                                         finish();
 
@@ -122,7 +122,7 @@ public class RegisterActivity extends AppCompatActivity {
                 }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-                Toast.makeText(RegisterActivity.this,e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(RegisterActivity.this, e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }

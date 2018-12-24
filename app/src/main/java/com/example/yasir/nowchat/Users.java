@@ -10,10 +10,9 @@ public class Users {
     public String image;
     public String status;
 
-    public Users(){
-
-
+    public Users() {
     }
+
     public Users(String name, String image, String status) {
         this.name = name;
         this.image = image;

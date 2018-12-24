@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DatabaseReference;
@@ -34,16 +35,16 @@ public class UsersActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_users);
 
-        mToolbar=findViewById(R.id.users_toolbar);
+        mToolbar = findViewById(R.id.users_toolbar);
         mCircleImageView = findViewById(R.id.users_circleImageView);
 
         setSupportActionBar(mToolbar);
         getSupportActionBar().setTitle("All Users");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        mUsersdatabase= FirebaseDatabase.getInstance().getReference().child("USERS DATABASE");
+        mUsersdatabase = FirebaseDatabase.getInstance().getReference().child("USERS DATABASE");
 
-        mRecyclerView=findViewById(R.id.users_RecyclerView);
+        mRecyclerView = findViewById(R.id.users_RecyclerView);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
@@ -57,7 +58,7 @@ public class UsersActivity extends AppCompatActivity {
         Query query = FirebaseDatabase.getInstance().getReference().child("USERS DATABASE");
 
         FirebaseRecyclerOptions<Users> options;
-        options = new FirebaseRecyclerOptions.Builder<Users>().setQuery(query,Users.class)
+        options = new FirebaseRecyclerOptions.Builder<Users>().setQuery(query, Users.class)
                 .build();
 
 
@@ -70,7 +71,7 @@ public class UsersActivity extends AppCompatActivity {
 
 
                 View view = LayoutInflater.from(parent.getContext())
-                        .inflate(R.layout.users_single_layout, parent,false);
+                        .inflate(R.layout.users_single_layout, parent, false);
 
 
                 return new UsersViewHolder(view);
@@ -85,7 +86,6 @@ public class UsersActivity extends AppCompatActivity {
                 holder.setimage(model.getImage());
 
 
-
             }
         };
 
@@ -96,31 +96,31 @@ public class UsersActivity extends AppCompatActivity {
 
     }
 
-    public  class UsersViewHolder extends  RecyclerView.ViewHolder{
+    public class UsersViewHolder extends RecyclerView.ViewHolder {
 
-         View mView;
+        View mView;
 
-         public UsersViewHolder(View itemView) {
+        public UsersViewHolder(View itemView) {
             super(itemView);
 
-            mView=itemView;
+            mView = itemView;
         }
 
-        public void setname(String name){
+        public void setname(String name) {
 
             TextView UsernameView = mView.findViewById(R.id.users_displayname_textView);
             UsernameView.setText(name);
 
         }
 
-        public void setstatus(String status){
+        public void setstatus(String status) {
 
             TextView StatusView = mView.findViewById(R.id.users_status_textView);
             StatusView.setText(status);
 
         }
 
-        public void setimage(String image){
+        public void setimage(String image) {
 
 
             Toast.makeText(UsersActivity.this, image, Toast.LENGTH_LONG).show();
